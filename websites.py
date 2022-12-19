@@ -24,7 +24,12 @@ class Website:
                 data["index"] = len(self.website_list) - 1
 
     def get_next_website_to_check(self):
-        pass
+        if self.index > len(self.website_list):
+            return None
+
+        data = self.website_list[self.index]
+        self.index += 1
+        return data
 
     def put_website_data(self):
         pass
