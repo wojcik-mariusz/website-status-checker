@@ -53,4 +53,7 @@ class Website:
             print("Bad keys in report: " + str(data))
 
     def save_report(self):
-        pass
+        """Save data into report file"""
+        with open("report.txt", mode="w") as fh:
+            for i in self.report_list:
+                fh.write(f"{i['Website']} - " + str(i))
