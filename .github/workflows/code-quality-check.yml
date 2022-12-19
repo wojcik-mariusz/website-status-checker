@@ -15,8 +15,4 @@ jobs:
 
       - name: Lint Python code
         run: |
-             python -m mypy ./website-status-checker
-             python -m flake8 ./website-status-checker
-             python -m pylint ./website-status-checker
-             python -m bandit ./website-status-checker
-             python -m pydocstyle ./website-status-checker
+             python -m mypy ./
