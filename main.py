@@ -31,3 +31,20 @@ class Client(Thread):
             print(websites_to_check)
             time.sleep(self.sleep_time)
         print(self.thread_name + " ended.")
+
+
+num_threads = 5
+thread_list = []
+num = 0
+
+while num < num_threads:
+    client = Client("T" + str(num), website, 0.2)
+    thread_list.append(client)
+    client.start()
+    num += 1
+
+for thread in thread_list:
+    thread.join()
+
+website.save_report()
+print("Job done")
