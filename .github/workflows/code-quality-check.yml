@@ -17,6 +17,6 @@ jobs:
         run: |
           python -m mypy ./
           python -m flake8 ./
-          python -m pylint ./
+          python -m pylint *.py
           python -m bandit ./
           python -m pydocstyle ./
