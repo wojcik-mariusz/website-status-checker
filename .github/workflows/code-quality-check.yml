@@ -13,10 +13,17 @@ jobs:
       - name: Install Python libs used to check code quality.
         run: python3 -m pip install -r requirements-dev.txt
 
-      - name: Lint Python code
-        run: |
-            python -m mypy ./
-            python -m flake8 ./
-            python -m pylint *.py
-            python -m bandit ./
-            python -m pydocstyle ./
+      - name: Lint Python code by mypy
+        run: python -m mypy ./
+
+      - name: Lint Python code by flake8
+        run: python -m flake8 ./
+
+      - name: Lint Python code by pylint
+        run: python -m pylint *.py
+
+      - name: Lint Python code by bandit
+        run: python -m bandit ./
+
+      - name: Lint Python code by pydocstyle
+        run: python -m pydocstyle ./
