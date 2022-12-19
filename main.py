@@ -1,2 +1,1 @@
-"""Main file.
-"""
+"""Main file."""
