@@ -1,6 +1,7 @@
 """Main file."""
 import os
 import time
+from threading import Lock
 from threading import Thread
 
 from websites import Website
@@ -9,6 +10,8 @@ script_dir = os.path.dirname(__file__)
 os.chdir(script_dir)
 
 website = Website("websites.txt")
+
+data_lock = Lock()
 
 
 class Client(Thread):
@@ -20,7 +23,9 @@ class Client(Thread):
 
     def run(self) -> None:
         while True:
+            data_lock.acquire()
             websites_to_check = self.websites.get_next_website_to_check()
+            data_lock.release()
             if websites_to_check is None:
                 break
             print(websites_to_check)
