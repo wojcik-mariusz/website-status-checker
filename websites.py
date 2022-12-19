@@ -34,7 +34,7 @@ class Website:
         :return: One website in dictionary.
         f.ex. {'Website': 'https://google.com', 'status_code': -1, 'index': 0}
         """
-        if self.index > len(self.website_list):
+        if self.index >= len(self.website_list):
             return None
 
         data = self.website_list[self.index]
