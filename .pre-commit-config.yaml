@@ -28,3 +28,8 @@ repos:
     rev: v3.9.0
     hooks:
       - id: reorder-python-imports
+
+  - repo: https://github.com/sondrelg/pep585-upgrade
+    rev: v1.0.1
+    hooks:
+      - id: upgrade-type-hints
