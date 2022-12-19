@@ -13,6 +13,7 @@ class Website:
         self.website_list: list[dict[str, Any]] = []
         self.index = 0
         self.load_file(file_name)
+        self.report_list: list[dict[str, Any]] = []
 
     def load_file(self, file_name):
         """
@@ -40,8 +41,16 @@ class Website:
         self.index += 1
         return data
 
-    def put_website_data(self):
-        pass
+    def put_website_data(self, data):
+        """
+        :param data: dict get from get_get_next_website_to_check
+        :return: List in updatet status codes,
+        or print to console about failure
+        """
+        if "index" in data and "Website" in data and "status_code" in data:
+            self.report_list.append(data)
+        else:
+            print("Bad keys in report: " + str(data))
 
     def save_report(self):
         pass
