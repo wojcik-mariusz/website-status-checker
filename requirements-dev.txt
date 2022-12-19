@@ -1,0 +1,5 @@
+bandit
+flake8
+mypy
+pydocstyle
+pylint
