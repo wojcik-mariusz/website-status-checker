@@ -44,7 +44,7 @@ class Website:
     def put_website_data(self, data):
         """
         :param data: dict get from get_get_next_website_to_check
-        :return: List in updatet status codes,
+        :return: List in update status codes,
         or print to console about failure
         """
         if "index" in data and "Website" in data and "status_code" in data:
