@@ -28,6 +28,11 @@ class Website:
                 data["index"] = len(self.website_list) - 1
 
     def get_next_website_to_check(self):
+        """
+        Read one of website from website list and return it.
+        :return: One website in dictionary.
+        f.ex. {'Website': 'https://google.com', 'status_code': -1, 'index': 0}
+        """
         if self.index > len(self.website_list):
             return None
 
