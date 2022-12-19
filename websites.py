@@ -7,7 +7,7 @@ class Website:
         """file_name: file name with web names inside,
         required to read name of websites
         website_list: list contain dict of name of websites as key,
-        and some informations like status code as values
+        and some information like status code as values
         """
         self.file_name = file_name
         self.website_list: list[dict[str, Any]] = []
@@ -15,6 +15,10 @@ class Website:
         self.load_file(file_name)
 
     def load_file(self, file_name):
+        """
+        This function load file to memory, and create website list that
+        contains website address with https, and index, status code.
+        """
         with open(file=file_name, mode="r") as fh:
             data_list = fh.readlines()
             for v in data_list:
