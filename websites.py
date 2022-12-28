@@ -56,4 +56,4 @@ class Website:
         """Save data into report file"""
         with open("report.txt", mode="w") as fh:
             for i in self.report_list:
-                fh.write(f"{i['Website']} - " + str(i))
+                fh.write(f"{i['Website']} - " + str(i) + "\n")
