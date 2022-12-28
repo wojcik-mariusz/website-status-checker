@@ -27,7 +27,10 @@ Features:
 </details>
 
 ## Setup
-To run this project use the following command:
+To run this project make file websites.txt with websites url name to checking. Url must be named as for example google.com. After this, use the following command:
 ```
 $ python main.py
+or 
+$ python3 main.py
+
 ```
