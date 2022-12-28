@@ -4,6 +4,9 @@ import time
 from threading import Lock
 from threading import Thread
 
+import validators
+from requests import get  # type: ignore
+
 from websites import Website
 
 script_dir = os.path.dirname(__file__)
@@ -28,9 +31,24 @@ class Client(Thread):
             data_lock.release()
             if websites_to_check is None:
                 break
-            print(websites_to_check)
+            self.check_url(websites_to_check)
             time.sleep(self.sleep_time)
         print(self.thread_name + " ended.")
+
+    def check_url(self, data):
+        try:
+            valid_url_flag = validators.url(data["Website"])
+            if valid_url_flag:
+                data["valid_url_flag"] = True
+                response = get(url=data["Website"], allow_redirects=True)
+                data["status_code"] = response.status_code
+            else:
+                data["valid_url_flag"] = False
+        except Exception as e:
+            data["exception"] = e
+        data_lock.acquire()
+        self.websites.put_website_data(data)
+        data_lock.release()
 
 
 num_threads = 5
